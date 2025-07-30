@@ -1,104 +1,173 @@
-/* CSS Variables for Theme Management */
 :root {
-  /* Light theme colors */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --text-primary: #282c34;
-  --text-secondary: #61dafb;
-  --border-color: #e9ecef;
-  --button-bg: #007bff;
-  --button-text: #ffffff;
+  /* Colors */
+  --color-white: #ffffff;
+  --color-purple-light: #d6d7ef;
+  --color-purple: #9395d3;
+  --color-gray: #8b8787;
+  --color-black: #000000;
+  --color-gray-light: #d1d1d6;
+  --color-gray-lighter: #ebebf5;
+  --color-green: #34c759;
+  --color-yellow: #ffd60a;
+  --color-purple-light-2: #b3b7ee;
+
+  /* Typography */
+  --font-family: 'Jost', sans-serif;
 }
 
-[data-theme="dark"] {
-  /* Dark theme colors */
-  --bg-primary: #1a1a1a;
-  --bg-secondary: #282c34;
-  --text-primary: #ffffff;
-  --text-secondary: #61dafb;
-  --border-color: #404040;
-  --button-bg: #0056b3;
-  --button-text: #ffffff;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App {
-  text-align: center;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-white);
+}
+
+.container {
+  max-width: 414px;
+  margin: 0 auto;
   min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: var(--bg-secondary);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: var(--text-primary);
-  transition: background-color 0.3s ease;
   position: relative;
 }
 
-.App-link {
-  color: var(--text-secondary);
-  transition: color 0.3s ease;
+/* Status Bar */
+.status-bar {
+  height: 44px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-purple);
+  color: var(--color-white);
 }
 
-.theme-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: var(--button-bg);
-  color: var(--button-text);
-  border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-size: 14px;
+.status-bar__time {
+  font-size: 15px;
+}
+
+.status-bar__icons {
+  display: flex;
+  gap: 5px;
+}
+
+/* App Bar */
+.app-bar {
+  background: var(--color-purple);
+  padding: 20px;
+  height: 118px;
+}
+
+.app-bar__title {
+  color: var(--color-white);
+  font-size: 24px;
   font-weight: 600;
+  line-height: 34.68px;
+  margin-top: 30px;
+}
+
+/* Navigation Bar */
+.nav-bar {
+  background: var(--color-white);
+  height: 68px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-bar__button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  color: var(--color-purple);
+  font-size: 10px;
+  background: none;
+  border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 8px 16px;
 }
 
-.theme-toggle:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  opacity: 0.9;
+.nav-bar__button--active {
+  color: var(--color-gray);
 }
 
-.theme-toggle:active {
-  transform: translateY(0);
+/* Todo List */
+.todo-list {
+  padding: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todo-item {
+  background: var(--color-white);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 82px;
 }
 
-/* Responsive design for mobile */
-@media (max-width: 768px) {
-  .theme-toggle {
-    top: 10px;
-    right: 10px;
-    padding: 8px 16px;
-    font-size: 12px;
-  }
+.todo-item__content {
+  flex-grow: 1;
+}
+
+.todo-item__title {
+  color: var(--color-purple);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18.78px;
+  margin-bottom: 5px;
+}
+
+.todo-item__subtitle {
+  color: var(--color-black);
+  font-size: 10px;
+  line-height: 14.45px;
+}
+
+.todo-item__actions {
+  display: flex;
+  gap: 20px;
+}
+
+.action-button {
+  width: 25px;
+  height: 25px;
+  border: 1.5px solid var(--color-purple-light-2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-purple);
+  padding: 0;
+}
+
+/* Add Button */
+.add-button {
+  position: fixed;
+  bottom: 89px;
+  right: 20px;
+  width: 70px;
+  height: 70px;
+  background: var(--color-purple);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  color: var(--color-white);
+}
+
+.add-button__icon {
+  font-size: 24px;
 }
