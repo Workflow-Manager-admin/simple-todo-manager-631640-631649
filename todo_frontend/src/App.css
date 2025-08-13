@@ -1,15 +1,12 @@
 :root {
-  /* Colors */
-  --color-white: #ffffff;
-  --color-purple-light: #d6d7ef;
-  --color-purple: #9395d3;
-  --color-gray: #8b8787;
-  --color-black: #000000;
-  --color-gray-light: #d1d1d6;
-  --color-gray-lighter: #ebebf5;
-  --color-green: #34c759;
-  --color-yellow: #ffd60a;
-  --color-purple-light-2: #b3b7ee;
+  /* Violet-Black Theme */
+  --primary: #7c3aed;         /* violet */
+  --secondary: #18181b;       /* near black surface */
+  --accent: #a21caf;          /* magenta/violet accent */
+  --background: #09090b;      /* deep black background */
+  --text: #ffffff;            /* primary text */
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --border-color: rgba(255, 255, 255, 0.12);
 
   /* Typography */
   --font-family: 'Jost', sans-serif;
@@ -23,7 +20,8 @@
 
 body {
   font-family: var(--font-family);
-  background-color: var(--color-white);
+  background-color: var(--background);
+  color: var(--text);
 }
 
 .container {
@@ -31,6 +29,7 @@ body {
   margin: 0 auto;
   min-height: 100vh;
   position: relative;
+  background: var(--background);
 }
 
 /* Status Bar */
@@ -40,8 +39,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--color-purple);
-  color: var(--color-white);
+  background: var(--primary);
+  color: var(--text);
 }
 
 .status-bar__time {
@@ -55,13 +54,13 @@ body {
 
 /* App Bar */
 .app-bar {
-  background: var(--color-purple);
+  background: var(--primary);
   padding: 20px;
   height: 118px;
 }
 
 .app-bar__title {
-  color: var(--color-white);
+  color: var(--text);
   font-size: 24px;
   font-weight: 600;
   line-height: 34.68px;
@@ -70,13 +69,13 @@ body {
 
 /* Navigation Bar */
 .nav-bar {
-  background: var(--color-white);
+  background: var(--secondary);
   height: 68px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .nav-bar__button {
@@ -84,16 +83,21 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 5px;
-  color: var(--color-purple);
+  color: var(--text-muted);
   font-size: 10px;
   background: none;
   border: none;
   cursor: pointer;
   padding: 8px 16px;
+  transition: color 0.2s ease;
+}
+
+.nav-bar__button:hover {
+  color: var(--text);
 }
 
 .nav-bar__button--active {
-  color: var(--color-gray);
+  color: var(--primary);
 }
 
 /* Todo List */
@@ -102,15 +106,15 @@ body {
 }
 
 .todo-item {
-  background: var(--color-white);
-  border-radius: 15px;
+  background: var(--secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
   padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 82px;
+  min-height: 82px;
 }
 
 .todo-item__content {
@@ -118,7 +122,7 @@ body {
 }
 
 .todo-item__title {
-  color: var(--color-purple);
+  color: var(--text);
   font-size: 13px;
   font-weight: 600;
   line-height: 18.78px;
@@ -126,28 +130,35 @@ body {
 }
 
 .todo-item__subtitle {
-  color: var(--color-black);
+  color: var(--text-muted);
   font-size: 10px;
   line-height: 14.45px;
 }
 
 .todo-item__actions {
   display: flex;
-  gap: 20px;
+  gap: 12px;
 }
 
 .action-button {
-  width: 25px;
-  height: 25px;
-  border: 1.5px solid var(--color-purple-light-2);
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid var(--border-color);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   background: transparent;
   cursor: pointer;
-  color: var(--color-purple);
+  color: var(--text);
   padding: 0;
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.action-button:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(124, 58, 237, 0.08);
 }
 
 /* Add Button */
@@ -157,15 +168,21 @@ body {
   right: 20px;
   width: 70px;
   height: 70px;
-  background: var(--color-purple);
+  background: var(--primary);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
-  color: var(--color-white);
+  color: var(--text);
+  box-shadow: 0 10px 24px rgba(124, 58, 237, 0.35);
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.add-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(124, 58, 237, 0.45);
 }
 
 .add-button__icon {

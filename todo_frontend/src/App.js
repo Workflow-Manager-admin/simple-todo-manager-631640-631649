@@ -8,12 +8,14 @@ import './App.css';
 
 const theme = createTheme({
   palette: {
-    primary: {
-      main: '#9395d3',
-    },
-    secondary: {
-      main: '#8b8787',
-    },
+    mode: 'dark',
+    primary: { main: '#7c3aed' },              // violet
+    secondary: { main: '#18181b' },            // dark surface (secondary)
+    background: { default: '#09090b', paper: '#18181b' }, // black backgrounds
+    text: { primary: '#ffffff', secondary: 'rgba(255, 255, 255, 0.7)' },
+    divider: 'rgba(255, 255, 255, 0.12)',
+    // Non-standard custom entry for convenience where needed
+    accent: { main: '#a21caf' },               // accent violet/magenta
   },
   typography: {
     fontFamily: 'Jost, sans-serif',
